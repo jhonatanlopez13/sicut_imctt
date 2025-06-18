@@ -77,8 +77,12 @@ if (isset($_POST['btnAprobarTrayectoria'])) {
 // Handle rejection
 if (isset($_POST['btnRechazarTrayectoria'])) {
     $txtMotivoRechazo = $_POST['txtMotivoRechazo'];
-    $query = 'UPDATE trayectoria SET trayectoria_aprobada = 2 WHERE id = ?';
-    $estadoQuery = $mysqlQuery->excecuteQuery($query, array($_GET['id']));
+    $query = 'UPDATE trayectoria SET trayectoria_aprobada = 2, MotivoRechazo = :motivo WHERE id = :id';
+    $params = array(
+        ':motivo' => $txtMotivoRechazo,
+        ':id' => $_GET['id']
+    );
+    $estadoQuery = $mysqlQuery->excecuteQuery($query, $params);
     
     if ($estadoQuery == 1) {
         $correo = $trayectorias[0]['email'];

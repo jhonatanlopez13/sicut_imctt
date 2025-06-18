@@ -52,7 +52,7 @@
                      id="txtUsuario" 
                      name="txtUsuario" 
                      required
-                     placeholder="Ingrese su nombre de usuario">
+                     placeholder="Ingrese su numero de documento">
             </div>
             
             <div class="mb-4">

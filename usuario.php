@@ -480,6 +480,55 @@
       </form>
     </div>
   </div>
+
+  <!-- Sección de Guía Telefónica -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">¿Quieres ser parte de nuestra guía telefónica?</h4>
+    </div>
+    <div class="card-body">
+      <form action="#" method="POST">
+        <div class="row mb-3">
+          <div class="col-md-12 mb-3">
+            <label class="form-label fw-bold">¿Cuentas con un lugar para hacer presentaciones?</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="lugarPresentaciones" id="siPresentaciones" value="Si">
+              <label class="form-check-label" for="siPresentaciones">Sí</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="lugarPresentaciones" id="noPresentaciones" value="No">
+              <label class="form-check-label" for="noPresentaciones">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="ubicacionLugar" class="form-label fw-bold">Ubicación del lugar (si aplica)</label>
+            <input type="text" class="form-control" name="ubicacionLugar" id="ubicacionLugar">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="presentaciones" class="form-label fw-bold">Descripción de presentaciones</label>
+            <input type="text" class="form-control" name="presentaciones" id="presentaciones">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6 mb-3">
+            <label for="contactoGuia" class="form-label fw-bold">Número de id</label>
+            <input type="text" class="form-control" name="contactoGuia" id="contactoGuia"  value="<?php echo $_SESSION['idPersona'] ?>">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="contactoGuia" class="form-label fw-bold">Número de contacto para la guía</label>
+            <input type="text" class="form-control" name="contactoGuia" id="contactoGuia" required>
+          </div>
+          <div class="col-md-6 mb-3 d-flex align-items-end justify-content-end">
+            <input type="submit" class="btn btn-primary px-4" name="btnGuiaTelefonica" value="Registrar en Guía">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <script>

@@ -356,7 +356,6 @@
             </select>
           </div>
         </div>
-
         <!-- Octava fila (RUT) -->
         <div class="row mb-3">
           <div class="col-md-6 mb-3">
@@ -367,6 +366,8 @@
             <input class="btn btn-primary px-4" type="submit" value="Actualizar Datos" name="btnActualizar">
           </div>
         </div>
+
+        
       </form>
     </div>
   </div>
@@ -463,7 +464,12 @@
             <input type="number" class="form-control" name="numAniosExperiencia" id="numAniosExperiencia" min="0" max="100">
           </div>
         </div>
-
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="filDocumentoAdjunto" class="form-label fw-bold">describa brevemente su procesos artisitico</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="procesoartistico" id='procesoartistico'></textarea>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-12 mb-3">
             <label for="filDocumentoAdjunto" class="form-label fw-bold">Certificados de experiencia (PDF, máximo 5MB)</label>

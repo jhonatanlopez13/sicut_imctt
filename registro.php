@@ -1,24 +1,23 @@
 <?php
-
 require_once 'utilities/db.php';
 require_once 'utilities/tools.php';
 
-  $connectionMysql = new Connection();
-  $connection = $connectionMysql->getConnection();
-  $mysqlQuery = new MySqlQuery($connection);
+// Conexión y consultas iniciales
+$connectionMysql = new Connection();
+$connection = $connectionMysql->getConnection();
+$mysqlQuery = new MySqlQuery($connection);
 
-  $query = "select * from tipo_identificacion";
-  $tipos_identificacion = $mysqlQuery->get($query);
+$query = "select * from tipo_identificacion";
+$tipos_identificacion = $mysqlQuery->get($query);
 
-  // consulta de departamentos
-  $query = "select * from departamentos";
-  $departamentos = $mysqlQuery->get($query);
+$query = "select * from departamentos";
+$departamentos = $mysqlQuery->get($query);
 
-  // consulta de municipios
-  $query = "select * from municipios";
-  $municipios = $mysqlQuery->get($query);
+$query = "select * from municipios";
+$municipios = $mysqlQuery->get($query);
 
-  if(isset($_POST['btnRegistrar'])){
+// Procesamiento del formulario
+if(isset($_POST['btnRegistrar'])){
     limpiar_entradas();
     $numTipoIdentificacion = $_POST['numTipoIdentificacion'];
     $numNumeroIdentificacion = $_POST['numNumeroIdentificacion'];
@@ -48,71 +47,73 @@ require_once 'utilities/tools.php';
     $numRut = $_POST['numRut'];
     $txtUsuario = md5($_POST['txtUsuario']);
     $txtClave = md5($_POST['txtClave']);
+    $poliza = $_POST['poliza'];
+    $num_poliza = $_POST['num_poliza'];
 
-    // consultar si el numero de identificacion existe en la base de datos
     $query = "select * from personas where numero_identificacion = :numero_identificacion";
     $persona = $mysqlQuery->get($query, array(':numero_identificacion' => $numNumeroIdentificacion));
+    
     if(empty($persona)){
-      $query = "
-        INSERT INTO personas(
-          id, id_tipo_identificacion, numero_identificacion, nombres, apellidos, telefono, email, fecha_nac, pais_nac, id_departamento_nac, 
-          id_municipio_nac, genero, grupo_etnico, victima_conflicto, persona_discapacidad, migrante, comunidad_lgbti, direccion_residencia, 
-          id_departamento_residencia, id_municipio_residencia, categoria_sisben, regimen_seguridad_social, regimen_pension, cuenta_con_rut, 
-          numero_rut, nivel_educativo, titulo_educativo
-        )
-        VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-      ";
-      $mysqlQuery->excecuteQuery($query, array( 
-        $numTipoIdentificacion,
-        $numNumeroIdentificacion,
-        $txtNombre,
-        $txtApellido,
-        $numTelefono,
-        $txtEmail,
-        $datFechaNac,
-        $txtPais,
-        $numDepartamentoNac,
-        $numMunicipioNac,
-        $txtGenero,
-        $txtGrupoEtnico,
-        $txtVictimaConflicto,
-        $txtPersonaDiscapacidad,
-        $txtMigrante,
-        $txtComunidadLGBTI,
-        $txtDireccionRes,
-        $numDepartamentoRes,
-        $numMunicipioRes,
-        $txtSisben,
-        $txtSeguridadSocial,
-        $txtPension,
-        $txtCuentaRut,
-        $numRut,
-        $txtNivelEducativo,
-        $txtTitulo)
-      );
-      $query = "select id from personas where numero_identificacion = :numero_identificacion";
-      $persona = $mysqlQuery->get($query, array(':numero_identificacion' => $numNumeroIdentificacion));
-      $idPersona = $persona[0]['id'];
-      $query = "insert into usuarios (id, id_persona, fecha_creacion, clave, token, usuario) values(NULL, ?, NOW(), ?, NULL, ?)";
-      $mysqlQuery->excecuteQuery($query, array($idPersona, $txtClave, $txtUsuario));
-      echo('<script>
-        alert("Se ha creado el usuario correctamente");
-        window.location.href = "index.php";
-      </script>');
-
+        $query = "
+            INSERT INTO personas(
+              id,id_tipo_identificacion,numero_identificacion,nombres,apellidos,telefono,email,fecha_nac,pais_nac,id_departamento_nac,id_municipio_nac,genero,grupo_etnico,victima_conflicto,persona_discapacidad,migrante,comunidad_lgbti,direccion_residencia,id_municipio_residencia,id_departamento_residencia,categoria_sisben,regimen_seguridad_social,regimen_pension,cuenta_con_rut,numero_rut,nivel_educativo,titulo_educativo,poliza,num_poliza
+            )
+            VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        ";
+        $mysqlQuery->excecuteQuery($query, array( 
+            $numTipoIdentificacion,
+            $numNumeroIdentificacion,
+            $txtNombre,
+            $txtApellido,
+            $numTelefono,
+            $txtEmail,
+            $datFechaNac,
+            $txtPais,
+            $numDepartamentoNac,
+            $numMunicipioNac,
+            $txtGenero,
+            $txtGrupoEtnico,
+            $txtVictimaConflicto,
+            $txtPersonaDiscapacidad,
+            $txtMigrante,
+            $txtComunidadLGBTI,
+            $txtDireccionRes,
+            $numDepartamentoRes,
+            $numMunicipioRes,
+            $txtSisben,
+            $txtSeguridadSocial,
+            $txtPension,
+            $txtCuentaRut,
+            $numRut,
+            $txtNivelEducativo,
+            $txtTitulo,
+            $poliza,
+            $num_poliza)
+        );
+        
+        $query = "select id from personas where numero_identificacion = :numero_identificacion";
+        $persona = $mysqlQuery->get($query, array(':numero_identificacion' => $numNumeroIdentificacion));
+        $idPersona = $persona[0]['id'];
+        
+        $query = "insert into usuarios (id, id_persona, fecha_creacion, clave, token, usuario) values(NULL, ?, NOW(), ?, NULL, ?)";
+        $mysqlQuery->excecuteQuery($query, array($idPersona, $txtClave, $txtUsuario));
+        
+        echo('<script>
+            alert("Se ha creado el usuario correctamente");
+            window.location.href = "index.php";
+        </script>');
     }else{
-      echo('<script>
-        alert("El Número de identificacion ya se encuentra registrado en la base de datos");
-        window.location.href = "index.php";
-      </script>');
+        echo('<script>
+            alert("El Número de identificacion ya se encuentra registrado en la base de datos");
+            window.location.href = "index.php";
+        </script>');
     }
-
-  }
-
+}
 ?>
 
 <?php include 'head.php' ?>
 
+<!-- HTML del formulario -->
 <div class="container py-4">
     <div class="row justify-content-center">
         <div class="col-lg-10">
@@ -139,7 +140,6 @@ require_once 'utilities/tools.php';
                                 
                                 <div class="mb-3">
                                     <label for="numNumeroIdentificacion" class="form-label">Número de identificación</label>
-                                    <!-- <input class="form-control" type="number" name="numNumeroIdentificacion" id="numNumeroIdentificacion" required> -->
                                     <input class="form-control" id="numNumeroIdentificacion" name="numNumeroIdentificacion" oninput="actualizarValorMunicipioInm()"></input>
                                 </div>
                                 
@@ -349,6 +349,18 @@ require_once 'utilities/tools.php';
                                     <label for="numRut" class="form-label">Número RUT</label>
                                     <input class="form-control" type="number" name="numRut" id="numRut">
                                 </div>
+                                <div class="mb-3">
+                                    <label for="poliza" class="form-label">Cuenta con poliza</label>
+                                    <select class="form-select" name="poliza" id="poliza">
+                                        <option value="No">No</option>
+                                        <option value="Si">Si</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="numRut" class="form-label">Número de poliza</label>
+                                    <input class="form-control" type="number" name="num_poliza" id="num_poliza">
+                                </div>
                             </div>
                             
                             <!-- Sección 6: Credenciales -->
@@ -357,8 +369,7 @@ require_once 'utilities/tools.php';
                                 
                                 <div class="mb-3">
                                     <label for="txtUsuario" class="form-label">Usuario</label>
-                                    <!-- <input class="form-control" type="text" name="txtUsuario" id="txtUsuario" required> -->
-                                     <input class="form-control" id="txtUsuario" name="txtUsuario" > </input>
+                                    <input class="form-control" id="txtUsuario" name="txtUsuario" > </input>
                                 </div>
                                 
                                 <div class="mb-3">
@@ -378,8 +389,8 @@ require_once 'utilities/tools.php';
     </div>
 </div>
 
+<!-- JavaScript -->
 <script>
-// [El código JavaScript existente se mantiene igual]
 document.getElementById('numDepartamentoNac').addEventListener('change', function() {
     var departamentoId = this.value;
     var municipioSelect = document.getElementById('numMunicipioNac');
@@ -407,13 +418,11 @@ document.getElementById('numDepartamentoRes').addEventListener('change', functio
         }
     }
 });
+
+function actualizarValorMunicipioInm() {
+    let municipio = document.getElementById("numNumeroIdentificacion").value;
+    document.getElementById("txtUsuario").value = municipio;
+}
 </script>
-    <script>
-        function actualizarValorMunicipioInm() {
-			let municipio = document.getElementById("numNumeroIdentificacion").value;
-			//Se actualiza en municipio inm
-			document.getElementById("txtUsuario").value = municipio;
-		}
-    </script>
 
 <?php include 'footer.php' ?>

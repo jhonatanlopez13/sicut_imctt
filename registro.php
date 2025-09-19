@@ -56,7 +56,7 @@ if(isset($_POST['btnRegistrar'])){
     if(empty($persona)){
         $query = "
             INSERT INTO personas(
-              id,id_tipo_identificacion,numero_identificacion,nombres,apellidos,telefono,email,fecha_nac,pais_nac,id_departamento_nac,id_municipio_nac,genero,grupo_etnico,victima_conflicto,persona_discapacidad,migrante,comunidad_lgbti,direccion_residencia,id_municipio_residencia,id_departamento_residencia,categoria_sisben,regimen_seguridad_social,regimen_pension,cuenta_con_rut,numero_rut,nivel_educativo,titulo_educativo,poliza,num_poliza
+              id,id_tipo_identificacion,numero_identificacion,nombres,apellidos,telefono,email,fecha_nac,pais_nac,id_departamento_nac,id_municipio_nac,genero,grupo_etnico,victima_conflicto,persona_discapacidad,migrante,comunidad_lgbti,direccion_residencia,id_municipio_residencia,id_departamento_residencia,categoria_sisben,regimen_seguridad_social,regimen_pension,cuenta_con_rut,numero_rut,nivel_educativo,titulo_educativo,poliza,terminos
             )
             VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
         ";
@@ -376,6 +376,15 @@ if(isset($_POST['btnRegistrar'])){
                                     <label for="txtClave" class="form-label">Contraseña</label>
                                     <input class="form-control" type="password" name="txtClave" id="txtClave" required>
                                 </div>
+
+                                <div class="mb-3">
+                                    <p>
+                                        De conformidad con lo definido por la Ley 1581 de 2012, el Decreto Reglamentario 1377 de 2013, la Circular Externa 002 de 2015 expedida por la Superintendencia de Industria y Comercio, la política interna de manejo de la información implementada por EL INSTITUTO MUNICIPAL DE CULTURA Y TURISMO DE TENJO y las demás normas concordantes, a través de las cuales se establecen disposiciones generales en materia de habeas data y se regula el tratamiento de la información que contenga datos personales, me permito declarar de manera expresa que:
+                                        Autorizo de manera libre, voluntaria, previa, explícita, informada e inequívoca al INSTITUTO MUNICIPAL DE CULTURA Y TURISMO DE TENJO, para que en los términos legalmente establecidos realice la recolección, almacenamiento, uso, circulación, supresión y en general, el tratamiento de los datos personales que he procedido a entregar de manera veraz y completa que pueda ser recolectado para fines del instituto y/o Alcaldía Municipal, en virtud de las relaciones legales, contractuales, comerciales y/o de cualquier otra que surja, en desarrollo y ejecución de los fines descritos en el presente documento, así como, el manejo de imagen en fotografía y video.
+
+                                    </p>
+                                    <input type="checkbox" id="terminos" name="terminos" values='1' required>
+                                    <label for="terminos">Acepto los términos y condiciones</label>
                             </div>
                         </div>
                         

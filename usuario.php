@@ -117,6 +117,8 @@
       $txtFrecuencuenciaPromosion = $_POST['txtFrecuencuenciaPromosion'];
       $txtFrecuencuenciaEmprendimiento = $_POST['txtFrecuencuenciaEmprendimiento'];
       $numAniosExperiencia = $_POST['numAniosExperiencia'];
+      $procesoartistico = $_POST['procesoartistico'];
+      
       if (!empty($_FILES['filDocumentoAdjunto']['name'])) {
         // Extraer detalles del archivo
         $nombreArchivo = $_FILES['filDocumentoAdjunto']['name'];
@@ -157,9 +159,9 @@
 
       // creacion de experiencia
       $query = "INSERT INTO trayectoria
-      (id, id_usuario, id_sub_sector_cultural, actividades_formacion, actividades_creacion_produccion, actividades_investigacion, actividades_promosion, actividades_emprendiimiento, anios_experiencia, archivo)
-      VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-      $mysqlQuery->excecuteQuery($query, array($idUsuario, $numSubSectorCultural, $txtFrecuencuenciaFormacion, $txtFrecuencuenciaProduccion, $txtFrecuencuenciaInvestigacion, $txtFrecuencuenciaPromosion, $txtFrecuencuenciaEmprendimiento, $numAniosExperiencia, $filDocumentoAdjunto));
+      (id, id_usuario, id_sub_sector_cultural, actividades_formacion, actividades_creacion_produccion, actividades_investigacion, actividades_promosion, actividades_emprendiimiento, anios_experiencia, procesoartistico, archivo)
+      VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+      $mysqlQuery->excecuteQuery($query, array($idUsuario, $numSubSectorCultural, $txtFrecuencuenciaFormacion, $txtFrecuencuenciaProduccion, $txtFrecuencuenciaInvestigacion, $txtFrecuencuenciaPromosion, $txtFrecuencuenciaEmprendimiento, $numAniosExperiencia, $procesoartistico, $filDocumentoAdjunto));
         $correo = $persona['email'];
         $subject = 'Registro de trayectoria SICUT';
         $body = 'Se ha registado una nueva trayecrotia con su suario, sera informado cuando esta haya sido aprobada por el equipo del Instituto de Cuntura y Turismo de Tenjo';
@@ -465,8 +467,8 @@
         </div>
         <div class="row">
           <div class="col-md-12 mb-3">
-            <label for="filDocumentoAdjunto" class="form-label fw-bold">describa brevemente su procesos artisitico</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="procesoartistico" id='procesoartistico'></textarea>
+            <label for="procesoartistico" class="form-label fw-bold">Describa brevemente su proceso artístico</label>
+            <textarea class="form-control" id="procesoartistico" rows="3" name="procesoartistico"></textarea>
           </div>
         </div>
         <div class="row">
@@ -480,55 +482,6 @@
         <div class="row">
           <div class="col-md-12 d-flex justify-content-end">
             <input type="submit" class="btn btn-primary px-4" name="btnCrearExperiencia" value="Registrar Trayectoria">
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Sección de Guía Telefónica -->
-  <div class="card shadow-sm">
-    <div class="card-header bg-primary text-white">
-      <h4 class="mb-0">¿Quieres ser parte de nuestra guía telefónica?</h4>
-    </div>
-    <div class="card-body">
-      <form action="#" method="POST">
-        <div class="row mb-3">
-          <div class="col-md-12 mb-3">
-            <label class="form-label fw-bold">¿Cuentas con un lugar para hacer presentaciones?</label>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="lugarPresentaciones" id="siPresentaciones" value="Si">
-              <label class="form-check-label" for="siPresentaciones">Sí</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="lugarPresentaciones" id="noPresentaciones" value="No">
-              <label class="form-check-label" for="noPresentaciones">No</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mb-3">
-          <div class="col-md-6 mb-3">
-            <label for="ubicacionLugar" class="form-label fw-bold">Ubicación del lugar (si aplica)</label>
-            <input type="text" class="form-control" name="ubicacionLugar" id="ubicacionLugar">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="presentaciones" class="form-label fw-bold">Descripción de presentaciones</label>
-            <input type="text" class="form-control" name="presentaciones" id="presentaciones">
-          </div>
-        </div>
-
-        <div class="row mb-3">
-          <div class="col-md-6 mb-3">
-            <label for="contactoGuia" class="form-label fw-bold">Número de id</label>
-            <input type="text" class="form-control" name="contactoGuia" id="contactoGuia"  value="<?php echo $_SESSION['idPersona'] ?>">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="contactoGuia" class="form-label fw-bold">Número de contacto para la guía</label>
-            <input type="text" class="form-control" name="contactoGuia" id="contactoGuia" required>
-          </div>
-          <div class="col-md-6 mb-3 d-flex align-items-end justify-content-end">
-            <input type="submit" class="btn btn-primary px-4" name="btnGuiaTelefonica" value="Registrar en Guía">
           </div>
         </div>
       </form>

@@ -116,11 +116,11 @@ if(isset($_SESSION['idUsuario']) and isset($_SESSION['idPersona'])){
           <p>Diana Carolina Rojas Gutiérrez</br>Directora Instituto Municipal de Cultura y Turismo de Tenjo</p>
           <p></p>
         </div>
-        <div class="col">
+        <!-- <div class="col">
           <img src="img/FirmaChristian.png" height="100" alt="">
           <p>Gyan Christian Camilo Borbon Vanegas</br>Subdirector de Cultura Instituto Municipal de Cultura y Turismo de Tenjo</p>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="container text-center">
       <div class="row">

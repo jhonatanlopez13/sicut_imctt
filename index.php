@@ -890,14 +890,6 @@
                 
                 <div class="highlight-card">
                     <div class="highlight-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>Eventos Culturales</h3>
-                    <p>Organización de festivales, conciertos, exposiciones y actividades culturales para la comunidad.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <div class="highlight-icon">
                         <i class="fas fa-hands-helping"></i>
                     </div>
                     <h3>Apoyo a Artistas</h3>
@@ -1033,12 +1025,11 @@
                 </div>
                 <div class="footer-links">
                     <h4>Enlaces rápidos</h4>
-                    <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Sectores Culturales</a></li>
-                        <li><a href="#">Eventos</a></li>
-                        <li><a href="#">Convocatorias</a></li>
-                        <li><a href="#">Noticias</a></li>
+                     <ul>
+                        <li><a href="./index.php">Inicio</a></li>
+                        <li><a href="./sectoresCulturales.php">Sectores Culturales</a></li>
+                        <li><a href="./eventos.php">Eventos</a></li>
+                        <li><a href="./galeria.php">Galería</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -1059,9 +1050,6 @@
                         <li><a href="#">Mapa del Sitio</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Instituto de Cultura de Tenjo. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>

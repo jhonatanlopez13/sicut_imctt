@@ -683,11 +683,10 @@
                 <div class="footer-links">
                     <h4>Enlaces rápidos</h4>
                     <ul>
-                        <li><a href="./index.html">Inicio</a></li>
+                        <li><a href="./index.php">Inicio</a></li>
                         <li><a href="./sectoresCulturales.php">Sectores Culturales</a></li>
                         <li><a href="./eventos.php">Eventos</a></li>
-                        <li><a href="./galeria.html">Galería</a></li>
-                        <li><a href="#">Noticias</a></li>
+                        <li><a href="./galeria.php">Galería</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -708,9 +707,6 @@
                         <li><a href="#">Mapa del Sitio</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Instituto de Cultura de Tenjo. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>

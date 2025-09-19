@@ -159,8 +159,7 @@
       $query = "INSERT INTO trayectoria
       (id, id_usuario, id_sub_sector_cultural, actividades_formacion, actividades_creacion_produccion, actividades_investigacion, actividades_promosion, actividades_emprendiimiento, anios_experiencia, archivo)
       VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-      $mysqlQuery->excecuteQuery($query, array($idUsuario, $numSubSectorCultural, $txtFrecuencuenciaFormacion, $txtFrecuencuenciaProduccion, $txtFrecuencuenciaInvestigacion, 
-        $txtFrecuencuenciaPromosion, $txtFrecuencuenciaEmprendimiento, $numAniosExperiencia, $filDocumentoAdjunto));
+      $mysqlQuery->excecuteQuery($query, array($idUsuario, $numSubSectorCultural, $txtFrecuencuenciaFormacion, $txtFrecuencuenciaProduccion, $txtFrecuencuenciaInvestigacion, $txtFrecuencuenciaPromosion, $txtFrecuencuenciaEmprendimiento, $numAniosExperiencia, $filDocumentoAdjunto));
         $correo = $persona['email'];
         $subject = 'Registro de trayectoria SICUT';
         $body = 'Se ha registado una nueva trayecrotia con su suario, sera informado cuando esta haya sido aprobada por el equipo del Instituto de Cuntura y Turismo de Tenjo';

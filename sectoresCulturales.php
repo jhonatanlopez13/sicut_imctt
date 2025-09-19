@@ -504,23 +504,17 @@
         <div class="container header-main">
             <div class="header-content">
                 <div class="logo">
-                    <div class="logo-text">Cultura Tenjo</div>
+                    <div class="logo-text">SICUT</div>
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#">Inicio</a></li>
+                        <li><a href="./index.php">Inicio</a></li>
                         <li><a href="#" class="active">Sectores Culturales</a></li>
-                        <li><a href="#">Eventos</a></li>
+                        <li><a href="./galeria.php">Galería</a></li>
                         <li><a href="#">Artistas</a></li>
                         <li><a href="#">Contacto</a></li>
                     </ul>
                 </nav>
-                <div class="search-login">
-                    <div class="search-box">
-                        <input type="text" placeholder="Buscar...">
-                    </div>
-                    <button class="btn btn-primary">Iniciar Sesión</button>
-                </div>
             </div>
         </div>
     </header>

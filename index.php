@@ -665,23 +665,18 @@
         <div class="container header-main">
             <div class="header-content">
                 <div class="logo">
-                    <div class="logo-text">Cultura Tenjo</div>
+                    <div class="logo-text">SICUT</div>
                 </div>
                 <nav>
                     <ul>
                         <li><a href="#" class="active">Inicio</a></li>
                         <li><a href="./sectoresCulturales.php">Sectores Culturales</a></li>
-                        <li><a href="#">Eventos</a></li>
-                        <li><a href="#">Artistas</a></li>
+                        <li><a href="./galeria.php">Galería</a></li>
+                        <li><a href="./registro.php">Registro</a></li>
+                        <li><a href="./inicio.php">inicio de session</a></li>
                         <li><a href="#">Contacto</a></li>
                     </ul>
                 </nav>
-                <div class="search-login">
-                    <div class="search-box">
-                        <input type="text" placeholder="Buscar...">
-                    </div>
-                    <button class="btn btn-primary">Iniciar Sesión</button>
-                </div>
             </div>
         </div>
     </header>

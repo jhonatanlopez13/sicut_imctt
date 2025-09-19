@@ -202,6 +202,7 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         
         .welcome-image img {
@@ -220,6 +221,99 @@
             font-size: 1.2rem;
             color: var(--color-secondary);
             margin-bottom: 15px;
+        }
+        
+        /* Estilos para el carrusel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .carousel-control {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background 0.3s;
+        }
+        
+        .carousel-control:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .carousel-indicator.active {
+            background: var(--color-primary);
         }
         
         /* Highlights Section */
@@ -649,6 +743,10 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+            
+            .carousel {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -660,7 +758,6 @@
                 <div>Instituto Municipal de Cultura de Tenjo</div>
                 <div>Fecha: <span id="current-date"></span></div>
             </div>
-            <!-- aaaaa -->
         </div>
         <div class="container header-main">
             <div class="header-content">
@@ -687,8 +784,6 @@
             <h1>Instituto de Cultura de Tenjo</h1>
             <p>Promoviendo y preservando el patrimonio cultural del municipio de Tenjo, Cundinamarca</p>
             <div class="hero-buttons">
-                <button class="btn btn-primary">Explorar Actividades</button>
-                <button class="btn btn-secondary">Convocatorias 2023</button>
             </div>
         </div>
     </section>
@@ -705,12 +800,71 @@
                     <button class="btn btn-primary" style="margin-top: 20px;">Conoce más sobre nosotros</button>
                 </div>
                 <div class="welcome-image">
-                    <img src="https://images.unsplash.com/photo-1581888227592-83c55b9c0946?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="Cultura Tenjo">
+                    <div class="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-slide active" style="background-image: url('./img/cultura/artenjo/IMG_0362.JPG');">
+                                <div class="carousel-caption">Festival de Danza Tradicional</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image: u url('./img/cultura/artenjo/IMG_0769.JPG');">
+                                <div class="carousel-caption">Taller de Pintura Infantil</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image:  url('./img/cultura/artenjo/IMG_3339.JPG');">
+                                <div class="carousel-caption">Exposición de Arte Local</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image: url('./img/cultura/artenjo/IMG_4846.JPG');">
+                                <div class="carousel-caption">Concierto de Música Andina</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image: url('./img/cultura/artenjo/IMG_4921.JPG');">
+                                <div class="carousel-caption">Teatro Comunitario</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image: url('./img/cultura/artenjo/IMG_4925.JPG');">
+                                <div class="carousel-caption">Feria de Artesanías</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image: url('./img/cultura/artenjo/IMG_4934.JPG');">
+                                <div class="carousel-caption">Patrimonio Cultural</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image: url('./img/cultura/artenjo/IMG_4935.JPG');">
+                                <div class="carousel-caption">Festival Gastronómico</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image: url('./img/cultura/artenjo/IMG_4937.JPG');">
+                                <div class="carousel-caption">Música en Vivo</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image: url('./img/cultura/artenjo/IMG_4938.JPG');">
+                                <div class="carousel-caption">Taller de Cerámica</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image: url('./img/cultura/artenjo/IMG_4939.JPG');">
+                                <div class="carousel-caption">Danza Contemporánea</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image: url('./img/cultura/DANZA/IMG_8504.JPG');">
+                                <div class="carousel-caption">Exposición Fotográfica</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image:  url('./img/cultura/DANZA/IMG_0124.JPG');">
+                                <div class="carousel-caption">Cine al Aire Libre</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image:  url('./img/cultura/DANZA/IMG_2304.JPG');">
+                                <div class="carousel-caption">Biblioteca Comunitaria</div>
+                            </div>
+                            <div class="carousel-slide" style="background-image:  url('./img/cultura/DANZA/IMG_2351.JPG');">
+                                <div class="carousel-caption">Carnaval Cultural</div>
+                            </div>
+
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="carousel-control prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-control next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="carousel-indicators"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Resto del contenido se mantiene igual -->
     <!-- Highlights Section -->
     <section class="highlights">
         <div class="container">
@@ -816,7 +970,7 @@
                                 <span><i class="far fa-clock"></i> 9:00 AM - 12:00 PM</span>
                                 <span><i class="fas fa-map-marker-alt"></i> Centro Cultural de Tenjo</span>
                             </div>
-                            <p>Taller gratuito de introducción a la pintura para niños entre 7 y 12 años.</p>
+                            <p>Taller gratuito de introducción a la pintura para niños entre 7 и 12 años.</p>
                         </div>
                     </div>
                     
@@ -932,6 +1086,70 @@
             card.addEventListener('click', function() {
                 const newsTitle = this.querySelector('h3').textContent;
                 alert(`Leer noticia: ${newsTitle} (función en desarrollo)`);
+            });
+        });
+        
+        // Funcionalidad del carrusel
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            const prevButton = document.querySelector('.carousel-control.prev');
+            const nextButton = document.querySelector('.carousel-control.next');
+            
+            let currentSlide = 0;
+            let slideInterval;
+            
+            // Crear indicadores
+            slides.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('carousel-indicator');
+                if (index === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => goToSlide(index));
+                indicatorsContainer.appendChild(indicator);
+            });
+            
+            // Función para ir a una slide específica
+            function goToSlide(n) {
+                slides[currentSlide].classList.remove('active');
+                document.querySelectorAll('.carousel-indicator')[currentSlide].classList.remove('active');
+                
+                currentSlide = (n + slides.length) % slides.length;
+                
+                slides[currentSlide].classList.add('active');
+                document.querySelectorAll('.carousel-indicator')[currentSlide].classList.add('active');
+            }
+            
+            // Navegación
+            prevButton.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                goToSlide(currentSlide - 1);
+                startSlideShow();
+            });
+            
+            nextButton.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                goToSlide(currentSlide + 1);
+                startSlideShow();
+            });
+            
+            // Iniciar el carrusel automático
+            function startSlideShow() {
+                slideInterval = setInterval(() => {
+                    goToSlide(currentSlide + 1);
+                }, 5000); // Cambia cada 5 segundos
+            }
+            
+            // Iniciar el carrusel
+            startSlideShow();
+            
+            // Pausar al pasar el mouse
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                startSlideShow();
             });
         });
     </script>

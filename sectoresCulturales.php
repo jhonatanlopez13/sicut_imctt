@@ -240,32 +240,78 @@
             margin-bottom: 15px;
             color: var(--color-primary);
             font-size: 1.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .category-content h3 i {
+            transition: transform 0.3s;
+        }
+        
+        .category-content h3.active i {
+            transform: rotate(180deg);
         }
         
         .category-content p {
             margin-bottom: 20px;
         }
         
-        .category-stats {
+        .category-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .category-details.active {
+            max-height: 1000px;
+        }
+        
+        .detail-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-title {
+            font-weight: 600;
+            color: var(--color-secondary);
+            margin-bottom: 5px;
+        }
+        
+        .representatives {
+            margin-top: 15px;
+        }
+        
+        .representative {
             display: flex;
-            justify-content: space-between;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
+            align-items: center;
+            margin-bottom: 10px;
         }
         
-        .stat {
-            text-align: center;
+        .rep-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-right: 10px;
         }
         
-        .stat-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--color-primary);
+        .rep-info h4 {
+            font-size: 0.9rem;
+            margin-bottom: 2px;
         }
         
-        .stat-label {
+        .rep-info p {
             font-size: 0.8rem;
             color: #777;
+            margin: 0;
         }
         
         /* Cultural Info */
@@ -296,63 +342,6 @@
         .info-card h3 {
             margin-bottom: 15px;
             color: var(--color-primary);
-        }
-        
-        /* Events */
-        .events {
-            padding: 60px 0;
-            background-color: var(--color-gray);
-        }
-        
-        .event-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .event-card {
-            background-color: var(--color-light);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .event-img {
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .event-content {
-            padding: 20px;
-        }
-        
-        .event-date {
-            color: var(--color-primary);
-            font-weight: 600;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .event-date i {
-            margin-right: 8px;
-        }
-        
-        .event-content h3 {
-            margin-bottom: 10px;
-            color: var(--color-dark);
-        }
-        
-        .event-location {
-            color: #777;
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .event-location i {
-            margin-right: 8px;
         }
         
         /* Footer */
@@ -481,8 +470,7 @@
             }
             
             .category-grid,
-            .info-grid,
-            .event-grid {
+            .info-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -533,128 +521,229 @@
         <div class="container">
             <h2 class="section-title">Nuestros Sectores Culturales</h2>
             <div class="category-grid">
+                <!-- Artes Escénicas -->
                 <div class="category-card">
                     <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1549451378-6e51e01c93a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');"></div>
                     <div class="category-content">
                         <h3>Artes Escénicas</h3>
                         <p>Grupos de teatro, danza y expresiones performáticas que enriquecen la vida cultural de Tenjo con sus presentaciones y festivales.</p>
-                        <div class="category-stats">
-                            <div class="stat">
-                                <div class="stat-value">12</div>
-                                <div class="stat-label">Grupos</div>
+                        <div class="category-details">
+                            <div class="detail-item">
+                                <div class="detail-title">Grupos Destacados</div>
+                                <p>Compañía de Teatro Tenjano, Grupo de Danzas Folclóricas Raíces, Colectivo Performático Andino.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">45</div>
-                                <div class="stat-label">Eventos anuales</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Eventos Principales</div>
+                                <p>Festival Anual de Teatro Callejero, Encuentro de Danzas Tradicionales, Muestra de Performance Contemporáneo.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">3</div>
-                                <div class="stat-label">Festivales</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Representantes</div>
+                                <div class="representatives">
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Carlos Méndez</h4>
+                                            <p>Director de Teatro</p>
+                                        </div>
+                                    </div>
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>María González</h4>
+                                            <p>Coreógrafa</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Artes Visuales -->
                 <div class="category-card">
                     <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');"></div>
                     <div class="category-content">
                         <h3>Artes Visuales</h3>
-                        <p>Pintores, escultores y artistas visuales que capturan la esencia de Tenjo a través de diversas técnicas y expresiones artísticas.</p>
-                        <div class="category-stats">
-                            <div class="stat">
-                                <div class="stat-value">28</div>
-                                <div class="stat-label">Artistas</div>
+                        <p>Pintores, escultores y artists visuales que capturan la esencia de Tenjo a través de diversas técnicas y expresiones artísticas.</p>
+                        <div class="category-details">
+                            <div class="detail-item">
+                                <div class="detail-title">Disciplinas</div>
+                                <p>Pintura al óleo, acuarela, escultura en madera y piedra, fotografía artística, instalaciones.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">6</div>
-                                <div class="stat-label">Exposiciones</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Espacios de Exhibición</div>
+                                <p>Galería Municipal, Casa de la Cultura, Salón de Exposiciones del Centro Histórico.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">2</div>
-                                <div class="stat-label">Galerías</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Representantes</div>
+                                <div class="representatives">
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1567532939604-b6b5b0db1604?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Jorge Ramírez</h4>
+                                            <p>Pintor y Escultor</p>
+                                        </div>
+                                    </div>
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Ana Torres</h4>
+                                            <p>Fotógrafa</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Música -->
                 <div class="category-card">
                     <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');"></div>
                     <div class="category-content">
                         <h3>Música</h3>
                         <p>Agrupaciones musicales, solistas y escuelas de música que mantienen vivas las tradiciones sonoras de la región.</p>
-                        <div class="category-stats">
-                            <div class="stat">
-                                <div class="stat-value">18</div>
-                                <div class="stat-label">Agrupaciones</div>
+                        <div class="category-details">
+                            <div class="detail-item">
+                                <div class="detail-title">Géneros Musicales</div>
+                                <p>Música andina colombiana, bambuco, pasillo, guabina, música carranguera, rock fusión.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">4</div>
-                                <div class="stat-label">Escuelas</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Agrupaciones Destacadas</div>
+                                <p>Estudiantina Tenjana, Trío Voces del Alba, Grupo de Chirimía, Banda Sinfónica Municipal.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">60+</div>
-                                <div class="stat-label">Presentaciones</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Representantes</div>
+                                <div class="representatives">
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Luis Fernández</h4>
+                                            <p>Director Musical</p>
+                                        </div>
+                                    </div>
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Sofía Mendoza</h4>
+                                            <p>Cantautora</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Patrimonio Cultural -->
                 <div class="category-card">
                     <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');"></div>
                     <div class="category-content">
                         <h3>Patrimonio Cultural</h3>
                         <p>Monumentos, sitios históricos y tradiciones que representan la identidad y memoria colectiva de Tenjo.</p>
-                        <div class="category-stats">
-                            <div class="stat">
-                                <div class="stat-value">15</div>
-                                <div class="stat-label">Sitios</div>
+                        <div class="category-details">
+                            <div class="detail-item">
+                                <div class="detail-title">Sitios de Interés</div>
+                                <p>Iglesia de Nuestra Señora de la Asunción, Casa Museo Juan Nepomuceno, Puente de Piedra Colonial.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">8</div>
-                                <div class="stat-label">Rutas</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Tradiciones</div>
+                                <p>Festival del Maíz, Fiestas Patronales, Ruta de la Chicha y la Guarapo, Mercado Campesino.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">5</div>
-                                <div class="stat-label">Museos</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Representantes</div>
+                                <div class="representatives">
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Roberto Díaz</h4>
+                                            <p>Historiador Local</p>
+                                        </div>
+                                    </div>
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Carmen Rojas</h4>
+                                            <p>Gestora Patrimonial</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Literatura y Oralidad -->
                 <div class="category-card">
                     <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1588200908342-23b585c03e26?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');"></div>
                     <div class="category-content">
                         <h3>Literatura y Oralidad</h3>
                         <p>Escritores, poetas y narradores que preservan y renuevan las historias y tradiciones literarias de Tenjo.</p>
-                        <div class="category-stats">
-                            <div class="stat">
-                                <div class="stat-value">22</div>
-                                <div class="stat-label">Escritores</div>
+                        <div class="category-details">
+                            <div class="detail-item">
+                                <div class="detail-title">Géneros Literarios</div>
+                                <p>Poesía campesina, narrativa histórica, cuento costumbrista, crónica local.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">4</div>
-                                <div class="stat-label">Grupos</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Iniciativas</div>
+                                <p>Talleres de escritura creativa, recitales poéticos, encuentros de narración oral, feria del libro local.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">12</div>
-                                <div class="stat-label">Encuentros</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Representantes</div>
+                                <div class="representatives">
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Alberto Morales</h4>
+                                            <p>Poeta y Escritor</p>
+                                        </div>
+                                    </div>
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Elena Castro</h4>
+                                            <p>Narradora Oral</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Artesanías y Oficios -->
                 <div class="category-card">
                     <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');"></div>
                     <div class="category-content">
                         <h3>Artesanías y Oficios</h3>
                         <p>Maestros artesanos que conservan técnicas tradicionales y crean piezas únicas que representan nuestra identidad cultural.</p>
-                        <div class="category-stats">
-                            <div class="stat">
-                                <div class="stat-value">35</div>
-                                <div class="stat-label">Artesanos</div>
+                        <div class="category-details">
+                            <div class="detail-item">
+                                <div class="detail-title">Artesanías Típicas</div>
+                                <p>Cerámica, cestería en junco, talla en madera, tejidos en lana, productos en cuero.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">7</div>
-                                <div class="stat-label">Oficios</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Talleres y Mercados</div>
+                                <p>Mercado Artesanal Mensual, Ruta de Talleres Artesanales, Feria de Maestros Artesanos.</p>
                             </div>
-                            <div class="stat">
-                                <div class="stat-value">3</div>
-                                <div class="stat-label">Ferias</div>
+                            <div class="detail-item">
+                                <div class="detail-title">Representantes</div>
+                                <div class="representatives">
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Jorge Silva</h4>
+                                            <p>Alfarero</p>
+                                        </div>
+                                    </div>
+                                    <div class="representative">
+                                        <div class="rep-img" style="background-image: url('https://images.unsplash.com/photo-1485893086445-ed75865251e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60');"></div>
+                                        <div class="rep-info">
+                                            <h4>Rosa Herrera</h4>
+                                            <p>Tejedora</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -688,42 +777,6 @@
                     </div>
                     <h3>15 Espacios Culturales</h3>
                     <p>Lugares dedicados a la promoción cultural en Tenjo</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events Section -->
-    <section class="events">
-        <div class="container">
-            <h2 class="section-title">Próximos Eventos Culturales</h2>
-            <div class="event-grid">
-                <div class="event-card">
-                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1549451378-6e51e01c93a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');"></div>
-                    <div class="event-content">
-                        <div class="event-date"><i class="far fa-calendar-alt"></i> 15 Octubre 2023</div>
-                        <h3>Festival de Danza Tradicional</h3>
-                        <div class="event-location"><i class="fas fa-map-marker-alt"></i> Parque Principal de Tenjo</div>
-                        <p>Encuentro de grupos de danza tradicional de Tenjo y municipios aledaños.</p>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');"></div>
-                    <div class="event-content">
-                        <div class="event-date"><i class="far fa-calendar-alt"></i> 22 Octubre 2023</div>
-                        <h3>Feria Artesanal "Manos de Tenjo"</h3>
-                        <div class="event-location"><i class="fas fa-map-marker-alt"></i> Plaza de Mercado</div>
-                        <p>Exposición y venta de productos artesanales creados por maestros tenjanos.</p>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');"></div>
-                    <div class="event-content">
-                        <div class="event-date"><i class="far fa-calendar-alt"></i> 5 Noviembre 2023</div>
-                        <h3>Concierto de Música Andina</h3>
-                        <div class="event-location"><i class="fas fa-map-marker-alt"></i> Teatro Municipal</div>
-                        <p>Presentación de agrupaciones musicales con repertorio de música andina colombiana.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -796,12 +849,28 @@
             alert('Sistema de autenticación en desarrollo.');
         });
         
-        // Interactividad para las tarjetas de categorías
-        const categoryCards = document.querySelectorAll('.category-card');
-        categoryCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const categoryName = this.querySelector('h3').textContent;
-                alert(`Explorando el sector: ${categoryName}`);
+        // Funcionalidad corregida para los acordeones de sectores culturales
+        const categoryHeaders = document.querySelectorAll('.category-content h3');
+        
+        categoryHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                // Toggle clase active en el header
+                this.classList.toggle('active');
+                
+                // Obtener el elemento de detalles (el siguiente elemento después del párrafo)
+                const details = this.nextElementSibling.nextElementSibling;
+                
+                // Alternar la clase active en los detalles
+                details.classList.toggle('active');
+                
+                // Cerrar otros acordeones al abrir uno nuevo (opcional)
+                categoryHeaders.forEach(otherHeader => {
+                    if (otherHeader !== this) {
+                        otherHeader.classList.remove('active');
+                        const otherDetails = otherHeader.nextElementSibling.nextElementSibling;
+                        otherDetails.classList.remove('active');
+                    }
+                });
             });
         });
     </script>

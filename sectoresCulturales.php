@@ -511,7 +511,8 @@
                         <li><a href="./index.php">Inicio</a></li>
                         <li><a href="#" class="active">Sectores Culturales</a></li>
                         <li><a href="./galeria.php">Galería</a></li>
-                        <li><a href="#">Artistas</a></li>
+                        <li><a href="./registro.php">Registro</a></li>
+                        <li><a href="./inicio.php">Inicio de Sesión</a></li>
                         <li><a href="#">Contacto</a></li>
                     </ul>
                 </nav>
